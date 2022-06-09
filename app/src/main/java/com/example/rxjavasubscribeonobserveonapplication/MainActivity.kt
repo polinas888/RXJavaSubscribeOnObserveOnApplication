@@ -31,7 +31,9 @@ class MainActivity : AppCompatActivity() {
             .map {
                 Log.i("CurrentThread", "5 ${Thread.currentThread()}")
             }
-            .subscribe()
+            .subscribe {
+                Log.i("CurrentThread", "6 ${Thread.currentThread()}")
+            }
     }
 
     private fun getNamedScheduler(name: String): Scheduler =  RxJavaPlugins.createNewThreadScheduler { Thread(it, name) }
